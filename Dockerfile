@@ -10,7 +10,9 @@ COPY . /app
 COPY profile.json /app/profile.json
 
 # Install dependencies
-RUN pip install --no-cache-dir flask pandas delta-sharing pandasql requests
+# RUN pip install --no-cache-dir flask pandas delta-sharing pandasql requests
+
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Expose port 5000
 EXPOSE 5000
