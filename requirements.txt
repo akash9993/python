@@ -1,5 +1,0 @@
-flask
-pandas
-delta-sharing
-pandasql
-requests
