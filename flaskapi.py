@@ -4,6 +4,7 @@ import pandasql as psql
 import requests  # To check Delta Sharing server status
 import json
 import time
+import os
 
 app = Flask(__name__)
 
@@ -11,7 +12,11 @@ app = Flask(__name__)
 PROFILE_FILE = r"/home/ubuntu/project/python/profile.json"
 
 def get_delta_sharing_server_url():
-    """Extracts the Delta Sharing server endpoint from the profile.json file."""
+    """Extract endpoint from env var or profile.json"""
+    env_url = os.getenv("DELTA_SHARING_ENDPOINT")
+    if env_url:
+        print("env_url: ",env_url)
+        return env_url
     try:
         with open(PROFILE_FILE, 'r') as file:
             profile_data = json.load(file)
