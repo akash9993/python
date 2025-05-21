@@ -22,7 +22,8 @@ def get_delta_sharing_server_url():
         with open(PROFILE_FILE, 'r') as file:
             profile_data = json.load(file)
             return profile_data.get("endpoint")
-    except Exception:
+    except Exception as e:
+        print("Exception while getting Delta Sharing endpoint:", e)
         return None
 
 def is_delta_sharing_server_up(server_url, timeout=30):
