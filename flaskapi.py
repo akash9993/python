@@ -13,11 +13,12 @@ PROFILE_FILE = r"/home/ubuntu/project/python/profile.json"
 
 def get_delta_sharing_server_url():
     """Extract endpoint from env var or profile.json"""
-    env_url = os.getenv("DELTA_SHARING_ENDPOINT")
-    if env_url:
-        print("env_url: ",env_url)
-        return env_url
+    
     try:
+        env_url = os.getenv("DELTA_SHARING_ENDPOINT")
+        if env_url:
+            print("env_url: ",env_url)
+            return env_url
         with open(PROFILE_FILE, 'r') as file:
             profile_data = json.load(file)
             return profile_data.get("endpoint")
