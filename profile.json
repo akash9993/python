@@ -1,5 +1,5 @@
 {
     "shareCredentialsVersion": 1,
-    "endpoint": "https://data-marketplace.dataengplatform.com/delta-sharing",
+    "endpoint": "http://localhost:8080/delta-sharing",
     "bearerToken": "12345"
 }
